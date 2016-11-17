@@ -1,9 +1,11 @@
 package com.avepe.repositories;
 
 import com.avepe.models.Client;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-//@Repository
-public interface ClientRepository{ //extends CrudRepository {
+@Repository
+public interface ClientRepository extends CrudRepository {
 
-    public Client findByName(String name);
+    Client findByName(String name);
 }

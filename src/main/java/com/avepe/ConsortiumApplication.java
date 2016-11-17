@@ -1,6 +1,5 @@
 package com.avepe;
 
-import org.hibernate.cfg.AvailableSettings;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +19,6 @@ public class ConsortiumApplication {
 		SpringApplication.run(ConsortiumApplication.class, args);
 	}
 
-	private static final String COM_ALOOGUE_MODEL = "com.avepe.model";
-
     @Bean
     public DataSource dataSource() {
         try {
@@ -31,6 +28,7 @@ public class ConsortiumApplication {
             dataSource.setUrl("jdbc:mysql://localhost:3306/consortium");
             dataSource.setUsername("root");
             dataSource.setPassword("ogaiht1989");
+			dataSource.setConnectionProperties(jpaProperties());
             return dataSource;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -50,7 +48,8 @@ public class ConsortiumApplication {
 	@Bean
 	public Properties jpaProperties() {
 		Properties properties = new Properties();
-		properties.put(AvailableSettings.HBM2DDL_AUTO, "create-drop");
+//		properties.put(AvailableSettings.HBM2DDL_AUTO, "create-drop");
+		properties.setProperty("useSSL", "false");
 		return properties;
 	}
 
@@ -58,7 +57,7 @@ public class ConsortiumApplication {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource());
-		factoryBean.setPackagesToScan(COM_ALOOGUE_MODEL);
+		factoryBean.setPackagesToScan("com.avepe.models");
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
 		factoryBean.setJpaProperties(jpaProperties());
 		return factoryBean;
