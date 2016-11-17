@@ -1,4 +1,4 @@
-package com.avepe.model;
+package com.avepe.models;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
