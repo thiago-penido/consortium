@@ -1,5 +1,6 @@
 package com.avepe;
 
+import org.hibernate.cfg.AvailableSettings;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -48,7 +49,7 @@ public class ConsortiumApplication {
 	@Bean
 	public Properties jpaProperties() {
 		Properties properties = new Properties();
-//		properties.put(AvailableSettings.HBM2DDL_AUTO, "create-drop");
+		properties.put(AvailableSettings.HBM2DDL_AUTO, "update");
 		properties.setProperty("useSSL", "false");
 		return properties;
 	}

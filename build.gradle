@@ -1,48 +1,47 @@
 buildscript {
-    ext {
-        springBootVersion = '2.0.0.BUILD-SNAPSHOT'
-    }
     repositories {
         mavenCentral()
-        maven { url "https://repo.spring.io/snapshot" }
-        maven { url "https://repo.spring.io/milestone" }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
     }
 }
 
 apply plugin: 'java'
-apply plugin: 'idea'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+springBoot {
+    executable = true
+}
 
 jar {
-    baseName = 'consortium'
-    version = '0.0.1-SNAPSHOT'
+    baseName = 'aloogue'
+    version = '1.0'
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
 }
 
-dependencies {
-    compile('org.springframework.boot:spring-boot-starter')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.4.Final'
-    compileOnly "org.projectlombok:lombok:1.16.10"
-    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.11.0.M1'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-    compile("com.h2database:h2")
+dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.projectlombok:lombok:1.16.8")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.hibernate:hibernate-core:5.0.3.Final")
+    compile("com.h2database:h2")
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
 
-    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
 
+    compile("com.auth0:java-jwt:2.1.0")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
 }
