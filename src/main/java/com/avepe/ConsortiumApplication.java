@@ -51,6 +51,7 @@ public class ConsortiumApplication {
 		Properties properties = new Properties();
 		properties.put(AvailableSettings.HBM2DDL_AUTO, "update");
 		properties.setProperty("useSSL", "false");
+		properties.setProperty("hibernate.format_sql", "true");
 		return properties;
 	}
 

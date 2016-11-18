@@ -26,4 +26,6 @@ public class Client implements Serializable {
     String fone;
     @Column
     Date birthday;
+    @ManyToOne
+    Address address;
 }
