@@ -23,6 +23,6 @@ public class ClientController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Client> getClient() {
-        return new ResponseEntity<Client>(clientService.getClient(), HttpStatus.OK) ;
+        return new ResponseEntity<>(clientService.getClient(), HttpStatus.OK) ;
     }
 }
