@@ -17,8 +17,8 @@ public class ClientController {
     ClientService clientService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Long> saveClient(Client client) {
-        return null;
+    public ResponseEntity<Client> saveClient(Client client) {
+        return new ResponseEntity<>(clientService.saveClient(client), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET)

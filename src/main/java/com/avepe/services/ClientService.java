@@ -14,4 +14,8 @@ public class ClientService {
     public Client getClient() {
         return clientRepository.findAll().iterator().next();
     }
+
+    public Client saveClient(Client client) {
+        return clientRepository.save(client);
+    }
 }
