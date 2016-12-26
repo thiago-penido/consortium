@@ -25,3 +25,4 @@ nbdist/
 .nb-gradle//keyrings/live/pubring.gpg~
 /keyrings/live/pubring.kbx~
 /keyrings/live/secring.gpg
+/src/main/java/com/avepe/seguridad/SensitiveConfiguration.properties
