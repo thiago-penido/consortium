@@ -17,7 +17,7 @@ springBoot {
 }
 
 jar {
-    baseName = 'aloogue'
+    baseName = 'Consortium'
     version = '1.0'
 }
 
