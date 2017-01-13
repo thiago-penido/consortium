@@ -6,12 +6,21 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Client</h1>
 
-    ${client.getIdClient()}
-    ${client.getName()}
-    ${client.getSocialName()}
-    ${client.getCpf()}
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <%@include file='../template/sidebar.jsp'%>
+    </div>
+    <div id="page-content-wrapper">
+        Client
+
+        ${client.getIdClient()}
+        ${client.getName()}
+        ${client.getSocialName()}
+        ${client.getCpf()}
+    </div>
+</div>
+</div>
 
 </body>
 </html>

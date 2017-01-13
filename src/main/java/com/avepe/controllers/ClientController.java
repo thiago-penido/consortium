@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+
 @Controller
 @RequestMapping("client")
 public class ClientController {
@@ -25,11 +27,11 @@ public class ClientController {
         return new ResponseEntity<>(clientService.saveClient(client), HttpStatus.OK);
     }
 
-//    @ResponseBody
-//    @RequestMapping(method = RequestMethod.GET, produces = APPLICATION_JSON_UTF8_VALUE)
-//    public ResponseEntity<Client> getClientJson() {
-//        return new ResponseEntity<>(clientService.getClient(), HttpStatus.OK) ;
-//    }
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.GET, produces = APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Client> getClientJson() {
+        return new ResponseEntity<>(clientService.getClient(), HttpStatus.OK) ;
+    }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public String getClientHtml(Model model) {
