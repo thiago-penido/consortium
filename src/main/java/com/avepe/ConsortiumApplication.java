@@ -26,9 +26,9 @@ public class ConsortiumApplication {
             Class.forName("com.mysql.jdbc.Driver");
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-            dataSource.setUrl("jdbc:mysql://localhost:3306/consortium");
-            dataSource.setUsername("root");
-            dataSource.setPassword("ogaiht1989");
+			dataSource.setUrl(System.getenv("JDBC_DATABASE_URL"));
+			dataSource.setUsername(System.getenv("JDBC_DATABASE_USERNAME"));
+            dataSource.setPassword(System.getenv("JDBC_DATABASE_PASSWORD"));
 			dataSource.setConnectionProperties(jpaProperties());
             return dataSource;
         } catch (ClassNotFoundException e) {

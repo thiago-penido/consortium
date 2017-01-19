@@ -20,11 +20,7 @@
     <div id="sidebar-wrapper">
 
         <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="home">
-                    Cons&oacute;rcio Pneus Avepe
-                </a>
-            </li>
+            <li class="sidebar-brand"><a href="home">Menu</a></li>
             <li>
                 <a href="client">Clients</a>
             </li>
