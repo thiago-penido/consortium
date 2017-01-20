@@ -22,7 +22,7 @@
         <ul class="sidebar-nav">
             <li class="sidebar-brand"><a href="home">Menu</a></li>
             <li>
-                <a href="client">Clients</a>
+                <a href="clients">Clients</a>
             </li>
             <li>
                 <a href="#">Shortcuts</a>

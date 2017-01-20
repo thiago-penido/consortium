@@ -8,34 +8,46 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 @Controller
-@RequestMapping("client")
+@RequestMapping("clients")
 public class ClientController {
 
     @Autowired
     ClientService clientService;
 
     @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Client> saveClient(Client client) {
-        return new ResponseEntity<>(clientService.saveClient(client), HttpStatus.OK);
+    public ModelAndView saveClient(Client client) {
+        clientService.saveClient(client);
+        return new ModelAndView("redirect:"+ "/clients/" + client.getIdClient());
     }
 
     @ResponseBody
-    @RequestMapping(method = RequestMethod.GET, produces = APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Client> getClientJson() {
-        return new ResponseEntity<>(clientService.getClient(), HttpStatus.OK) ;
+    @RequestMapping(method = RequestMethod.GET, value = "/{idClient}", produces = APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Client> getClientJson(@PathVariable Long idClient) {
+
+        Client client = clientService.getClientById(idClient);
+        System.out.println(client.getName());
+        return new ResponseEntity<>(client, HttpStatus.OK) ;
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public String getClientHtml(Model model) {
-        model.addAttribute("client", clientService.getClient());
-        return "client/show";
+    @RequestMapping(method = RequestMethod.GET, value = "/{idClient}", produces = MediaType.TEXT_HTML_VALUE)
+    public String getClientHtml(Model model, @PathVariable Long idClient) {
+        Client client = clientService.getClientById(idClient);
+        System.out.println(client.getName());
+        model.addAttribute("client", client);
+        return "clients/show";
+    }
+
+
+    @RequestMapping(method = RequestMethod.GET, value = "new", produces = MediaType.TEXT_HTML_VALUE)
+    public String getClientHtml() {
+        return "clients/new";
     }
 }

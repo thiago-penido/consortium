@@ -13,8 +13,8 @@ public class ClientService {
     ClientRepository clientRepository;
 
     @ModelAttribute("client")
-    public Client getClient() {
-        return clientRepository.findAll().iterator().next();
+    public Client getClientById(Long idClient) {
+        return clientRepository.findOne(idClient);
     }
 
     public Client saveClient(Client client) {
