@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
@@ -20,12 +19,10 @@ public class ClientController {
     @Autowired
     ClientService clientService;
 
-    @ResponseBody
-    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView saveClient(Client client) {
+    public String saveClient(Client client) {
         clientService.saveClient(client);
-        return new ModelAndView("redirect:"+ "/clients/" + client.getIdClient());
+        return "redirect:clients/" + client.getIdClient();
     }
 
     @ResponseBody
