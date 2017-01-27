@@ -37,7 +37,6 @@ public class ClientController {
     @RequestMapping(method = RequestMethod.GET, value = "/{idClient}", produces = MediaType.TEXT_HTML_VALUE)
     public String getClientHtml(Model model, @PathVariable Long idClient) {
         Client client = clientService.getClientById(idClient);
-        System.out.println(client.getName());
         model.addAttribute("client", client);
         return "clients/show";
     }
@@ -46,5 +45,19 @@ public class ClientController {
     @RequestMapping(method = RequestMethod.GET, value = "new", produces = MediaType.TEXT_HTML_VALUE)
     public String getClientHtml() {
         return "clients/new";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public String getAllClientList(Model model, @RequestParam(value = "leachByName", required = false) String leachByName) {
+        Iterable<Client> clients;
+
+        if(leachByName != null) {
+            clients = clientService.findByNameLike(leachByName);
+        } else {
+            clients = clientService.getAllClients();
+        }
+
+        model.addAttribute("clients", clients);
+        return "clients/index";
     }
 }

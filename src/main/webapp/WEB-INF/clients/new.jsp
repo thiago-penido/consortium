@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cliente</title>
 </head>
 <body>
 
@@ -22,14 +22,18 @@
                 <label for="cpf">Cpf</label>
                 <input type="cpf" class="form-control" id="cpf" name="cpf">
             </div>
+            <div class="form-group">
+                <label for="fone">Telefone</label>
+                <input type="text" class="form-control" id="fone" name="fone">
+            </div>
+            <div class="form-group">
+            <label for="birthday">Data de Nascimento</label>
+            <input type="date" class="form-control" id="birthday" name="birthday">
+        </div>
             <button type="submit" class="btn btn-default">Salvar</button>
         </form>
     </div>
 </div>
-
-
-
-
 </div>
 
 </body>

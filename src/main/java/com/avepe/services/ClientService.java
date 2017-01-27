@@ -20,4 +20,12 @@ public class ClientService {
     public Client saveClient(Client client) {
         return clientRepository.save(client);
     }
+
+    public Iterable<Client> getAllClients() {
+        return clientRepository.findAll();
+    }
+
+    public Iterable<Client> findByNameLike(String name) {
+        return clientRepository.findByNameLike("%" + name + "%");
+    }
 }

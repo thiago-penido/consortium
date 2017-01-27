@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cliente</title>
 </head>
 <body>
 
@@ -30,13 +30,17 @@
                 <td>Cpf</td>
                 <td>${client.getCpf()}</td>
             </tr>
+            <tr>
+                <td>Telefone</td>
+                <td>${client.getFone()}</td>
+            </tr>
+            <tr>
+                <td>Data de Nascimento</td>
+                <td>${client.getBirthday()}</td>
+            </tr>
         </table>
     </div>
 </div>
-
-
-
-
 </div>
 
 </body>
