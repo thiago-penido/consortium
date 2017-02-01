@@ -40,7 +40,7 @@ public class ConsortiumApplication {
 	@Bean
 	public JpaVendorAdapter jpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-		adapter.setShowSql(true);
+//		adapter.setShowSql(true);
 		adapter.setGenerateDdl(true);
 		adapter.setDatabase(Database.MYSQL);
 		return adapter;

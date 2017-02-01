@@ -16,19 +16,13 @@
     </div>
 
     <form class="navbar-form navbar-left" role="search" action="/clients" method="get">
-
-
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="text" class="form-control" placeholder="Search for..." id="nameFilter" name="leachByName">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
+                <button class="btn btn-default" type="submit">Pesquisar</button>
             </span>
         </div>
-
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" id="nameFilter" name="leachByName">
-        </div>
-        <button type="submit" class="btn btn-default">Pesquisar</button>
+        <a href="/clients/new" class="btn btn-success">Novo</a>
     </form>
 
     <table class="table">
@@ -40,6 +34,8 @@
                 <td>${client.getCpf()}</td>
                 <td>${client.getFone()}</td>
                 <td>${client.getBirthday()}</td>
+                <td><a href="/clients/${client.getIdClient()}" class="btn btn-info">Show</a></td>
+                <td><a href="/clients/${client.getIdClient()}/edit" class="btn btn-danger">Edit</a></td>
             </tr>
         </c:forEach>
     </table>

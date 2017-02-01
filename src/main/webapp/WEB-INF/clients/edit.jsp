@@ -13,26 +13,26 @@
     </div>
     <div id="page-content-wrapper" class="top">
 
-        <form action="/clients" method="post">
+        <form action="/clients" method="put">
             <div class="form-group">
                 <label for="name">Nome</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" value="${client.getName()}">
             </div>
             <div class="form-group">
-                <label for="socialName">Nome Social</label>
-                <input type="text" class="form-control" id="socialName" name="socialName">
+                <label for="nameSocial">Nome</label>
+                <input type="text" class="form-control" id="nameSocial" name="nameSocial" value="${client.getSocialName()}">
             </div>
             <div class="form-group">
                 <label for="cpf">Cpf</label>
-                <input type="cpf" class="form-control" id="cpf" name="cpf">
+                <input type="cpf" class="form-control" id="cpf" name="cpf" value="${client.getCpf()}">
             </div>
             <div class="form-group">
                 <label for="fone">Telefone</label>
-                <input type="text" class="form-control" id="fone" name="fone">
+                <input type="text" class="form-control" id="fone" name="fone" value="${client.getFone()}">
             </div>
             <%--<div class="form-group">--%>
             <%--<label for="birthday">Data de Nascimento</label>--%>
-            <%--<input type="date" class="form-control" id="birthday" name="birthday">--%>
+            <%--<input type="date" class="form-control" id="birthday" name="birthday" value="${client.getBirthday()}">--%>
             <%--</div>--%>
             <button type="submit" class="btn btn-default">Salvar</button>
         </form>
